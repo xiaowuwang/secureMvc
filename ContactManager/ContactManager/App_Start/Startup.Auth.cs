@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using ContactManager.Models;
+using System.Configuration;
 
 namespace ContactManager
 {
@@ -58,11 +59,11 @@ namespace ContactManager
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = ConfigurationManager.AppSettings["GoogClientID"],
+                ClientSecret = ConfigurationManager.AppSettings["GoogClientSecret"]
+            });
         }
     }
 }

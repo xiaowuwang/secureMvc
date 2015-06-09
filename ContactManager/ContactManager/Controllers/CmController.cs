@@ -36,6 +36,7 @@ namespace ContactManager.Controllers
         }
 
         // GET: Cm/Create
+        [Authorize(Roles = "canEdit")]
         public ActionResult Create()
         {
             return View(new Contact { Address = "123 N 456 S", City = "GF", 
@@ -45,6 +46,7 @@ namespace ContactManager.Controllers
         // POST: Cm/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "canEdit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact)
@@ -60,6 +62,7 @@ namespace ContactManager.Controllers
         }
 
         // GET: Cm/Edit/5
+        [Authorize(Roles = "canEdit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,6 +80,7 @@ namespace ContactManager.Controllers
         // POST: Cm/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "canEdit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact)
@@ -91,6 +95,7 @@ namespace ContactManager.Controllers
         }
 
         // GET: Cm/Delete/5
+        [Authorize(Roles = "canEdit")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -106,6 +111,7 @@ namespace ContactManager.Controllers
         }
 
         // POST: Cm/Delete/5
+        [Authorize(Roles = "canEdit")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
