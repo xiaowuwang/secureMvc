@@ -43,6 +43,11 @@ namespace ContactManager.Migrations
         protected override void Seed(ContactManager.Models.ApplicationDbContext context)
         {
            string userID = AddUserAndRole(context);
+            // Only seed if DB is empty
+           if (context.Contacts.Count() > 0)
+           {
+               return;
+           }
             context.Contacts.AddOrUpdate(p => p.Name,
                new Contact
                {
