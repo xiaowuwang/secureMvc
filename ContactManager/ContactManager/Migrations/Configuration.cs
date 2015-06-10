@@ -19,6 +19,9 @@ namespace ContactManager.Migrations
         {
             string userID = "failed";
             IdentityResult ir;
+            // Role not used in this sample. 
+            // Role is used in "Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service"
+            // https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
             var rm = new RoleManager<IdentityRole>
                 (new RoleStore<IdentityRole>(context));
             ir = rm.Create(new IdentityRole("canEdit"));
@@ -31,6 +34,7 @@ namespace ContactManager.Migrations
             ir = um.Create(user, "P_assw0rd1");
             if (ir.Succeeded == false)
                 return userID;
+            // user ID is added to seeded data
             userID = user.Id;
             ir = um.AddToRole(user.Id, "canEdit");
             return userID;

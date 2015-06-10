@@ -188,6 +188,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\cm0.pubxml" />
     <None Include="Properties\PublishProfiles\cm11.pubxml" />
+    <None Include="Properties\PublishProfiles\cm111.pubxml" />
     <None Include="Properties\PublishProfiles\cm99.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
