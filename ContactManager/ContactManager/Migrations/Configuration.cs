@@ -15,8 +15,9 @@ namespace ContactManager.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
+        string AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
         {
+            string userID = "failed";
             IdentityResult ir;
             var rm = new RoleManager<IdentityRole>
                 (new RoleStore<IdentityRole>(context));
@@ -29,14 +30,15 @@ namespace ContactManager.Migrations
             };
             ir = um.Create(user, "P_assw0rd1");
             if (ir.Succeeded == false)
-                return ir.Succeeded;
+                return userID;
+            userID = user.Id;
             ir = um.AddToRole(user.Id, "canEdit");
-            return ir.Succeeded;
+            return userID;
         }
 
         protected override void Seed(ContactManager.Models.ApplicationDbContext context)
         {
-            AddUserAndRole(context);
+           string userID = AddUserAndRole(context);
             context.Contacts.AddOrUpdate(p => p.Name,
                new Contact
                {
@@ -46,6 +48,7 @@ namespace ContactManager.Migrations
                    State = "WA",
                    Zip = "10999",
                    Email = "debra@example.com",
+                   ApplicationUser_Id = userID
                },
                 new Contact
                 {
@@ -55,6 +58,7 @@ namespace ContactManager.Migrations
                     State = "WA",
                     Zip = "10999",
                     Email = "thorsten@example.com",
+                    ApplicationUser_Id = userID
                 },
                 new Contact
                 {
@@ -64,6 +68,7 @@ namespace ContactManager.Migrations
                     State = "WA",
                     Zip = "10999",
                     Email = "yuhong@example.com",
+                    ApplicationUser_Id = userID
                 },
                 new Contact
                 {
@@ -73,6 +78,7 @@ namespace ContactManager.Migrations
                     State = "WA",
                     Zip = "10999",
                     Email = "jon@example.com",
+                    ApplicationUser_Id = userID
                 },
                 new Contact
                 {
@@ -82,6 +88,7 @@ namespace ContactManager.Migrations
                     State = "WA",
                     Zip = "10999",
                     Email = "diliana@example.com",
+                    ApplicationUser_Id = userID
                 }
                 );
         }

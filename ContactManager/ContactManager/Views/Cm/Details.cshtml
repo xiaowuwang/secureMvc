@@ -61,6 +61,11 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ContactId }) |
+   
+    @if ( @Model.ApplicationUser_Id == ViewBag.UserID)
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ContactId })
+        @:|
+}
     @Html.ActionLink("Back to List", "Index")
 </p>
