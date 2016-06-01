@@ -165,9 +165,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201506091644056_Initial.cs" />
-    <Compile Include="Migrations\201506091644056_Initial.Designer.cs">
-      <DependentUpon>201506091644056_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201506110416344_initial.cs" />
+    <Compile Include="Migrations\201506110416344_initial.Designer.cs">
+      <DependentUpon>201506110416344_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -187,6 +187,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\cm0.pubxml" />
+    <None Include="Properties\PublishProfiles\cm11.pubxml" />
+    <None Include="Properties\PublishProfiles\cm111.pubxml" />
     <None Include="Properties\PublishProfiles\cm99.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -252,8 +254,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201506091644056_Initial.resx">
-      <DependentUpon>201506091644056_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506110416344_initial.resx">
+      <DependentUpon>201506110416344_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

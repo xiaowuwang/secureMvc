@@ -3,7 +3,7 @@ namespace ContactManager.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -12,6 +12,7 @@ namespace ContactManager.Migrations
                 c => new
                     {
                         ContactId = c.Int(nullable: false, identity: true),
+                        ApplicationUser_Id = c.String(),
                         Name = c.String(),
                         Address = c.String(),
                         City = c.String(),
